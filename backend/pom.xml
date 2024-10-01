@@ -26,9 +26,13 @@
 		<tag/>
 		<url/>
 	</scm>
+
 	<properties>
 		<java.version>17</java.version>
+		<docker.username>${env.DOCKER_USERNAME}</docker.username>
+		<docker.password>${env.DOCKER_PASSWORD}</docker.password>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
