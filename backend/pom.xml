@@ -31,6 +31,8 @@
 		<java.version>17</java.version>
 		<docker.username>${env.DOCKER_USERNAME}</docker.username>
 		<docker.password>${env.DOCKER_PASSWORD}</docker.password>
+		<docker.image.name>amigoscode-rsu-api</docker.image.name>
+		<docker.image.tag/>
 	</properties>
 
 	<dependencies>
@@ -188,7 +190,7 @@
 						</platforms>
 					</from>
 					<to>
-						<image>docker.io/rsmithuchot1/${project.artifactId}:${project.version}</image>
+						<image>docker.io/${docker.username}/${docker.image.name}:${docker.image.tag}</image>
 						<tags>
 							<tag>latest</tag>
 						</tags>

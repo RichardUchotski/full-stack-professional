@@ -43,3 +43,12 @@ jobs:
 
       - name: Build and run Unit/Integration Tests with Maven
         run: mvn -B verify
+
+      - name: Update Dockerrun.aws.json
+        run: |
+          echo "Dockerrun.aws.json before updating tag"
+          cat Dockerrun.aws.json
+          sed -i -E 's_(rsmithuchot1/amigoscode-rsu-api:)([^"]*)_\1'${{steps.build-number.outputs.BUILD_NUMBER}}'_' ../Dockerrun.aws.json
+          echo "Dockerrun.aws.json after updating tag"
+          cat Dockerrun.aws.json
+          
