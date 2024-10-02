@@ -28,6 +28,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - name: Calling curl for Git Repo Checkout
+        run: >
+          curl -X POST -H 'Content-Type: application/json' \
+          -d {"text": "Checkout Git REPO, that is all ready merged from pull, ready for testing for deployment"}'  https://hooks.slack.com/services/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
       - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
@@ -44,6 +48,9 @@ jobs:
       - name: Build Package Push With Maven
         run: mvn -ntp -B verify -DskipTests -Ddocker.image.tag=${{steps.build-number.outputs.BUILD_NUMBER}} jib:build
         working-directory: backend
+      - name: Calling Curl to say mvn verify has run
+        run: >
+          curl -X POST -H  'Content-type: application/json' -d '{"text" : "The mvn command has run with the -D docker image tag variable passed to the POM through the mvn command and with a jib build for docker"}'  https://hooks.slack.com/services/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
       - name: Update Dockerrun.aws.json api image tag with a new build number
         run: |
           echo "Dockerrun.aws.json before updating the tag"
@@ -62,6 +69,9 @@ jobs:
           version_description: ${{github.SHA}}
           region: ${{secrets.EB_REGION}}
           deployment_package: backend/Dockerrun.aws.json
+      - name: Curl call for after AWS upload
+        run: >
+         curl -X POST -H 'Content-type: application.json' -d '{"text":"AWS UPLOAD"}'  https://hooks.slack.com/services/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
       - name: Commit and Push Dockerrun.aws.json
         run: |
             git config user.name github-actions
