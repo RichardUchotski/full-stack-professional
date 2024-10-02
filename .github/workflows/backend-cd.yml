@@ -30,8 +30,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Calling curl for Git Repo Checkout
         run: >
-          curl -X POST -H 'Content-Type: application/json' \
-          -d {"text": "Checkout Git REPO, that is all ready merged from pull, ready for testing for deployment"}'  https://hooks.slack.com/services/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
+          curl -X POST -H 'Content-Type: application/json' -d {"text": "Checkout Git REPO, that is all ready merged from pull, ready for testing for deployment"}'  https://hooks.slack.com/services/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
       - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
