@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class PingPongController {
     record PingPong(String result){}
 
-    int id = 20;
-
     @GetMapping("/ping")
     public PingPong getPingPong(){
         return new PingPong("Pong");
