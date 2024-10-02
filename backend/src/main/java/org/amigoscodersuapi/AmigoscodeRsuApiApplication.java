@@ -16,9 +16,6 @@ public class AmigoscodeRsuApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AmigoscodeRsuApiApplication.class, args);
-		// So, I deleted some lines, but have replaced it one with one here.
-		// Added a line
-		// Added a new line lol
 	}
 
 	@Bean
