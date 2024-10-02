@@ -9,6 +9,6 @@ public class PingPongController {
 
     @GetMapping("/ping")
     public PingPong getPingPong(){
-        return new PingPong("Pong","You just got ponged you know!");
+        return new PingPong("Pong","You just got ponged you know. Ponged so hard!");
     }
 }
