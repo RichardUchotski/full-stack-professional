@@ -29,7 +29,7 @@
 
 	<properties>
 		<java.version>17</java.version>
-		<docker.username>rsmithuchott1</docker.username>
+		<docker.username>rsmithuchot1</docker.username>
 		<docker.image.name>amigoscode-rsu-api</docker.image.name>
 		<docker.image.tag/>
 	</properties>
